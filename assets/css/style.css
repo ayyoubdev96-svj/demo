@@ -3631,3 +3631,10 @@ body.menu-open .dock {
     z-index: 1;
   }
 }
+
+/* Grain désactivé sur petits écrans : défilement plus fluide */
+@media (max-width: 720px), (prefers-reduced-motion: reduce) {
+  .grain {
+    display: none;
+  }
+}
