@@ -3638,3 +3638,311 @@ body.menu-open .dock {
     display: none;
   }
 }
+
+/* ==========================================================================
+   Passe responsive (320 px → 1920 px, portrait et paysage)
+   ========================================================================== */
+
+/* En-tête : jamais coupé, même à 320 px */
+.brand {
+  min-width: 0;
+}
+.brand__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 374px) {
+  .header__bar {
+    padding-left: 12px;
+    gap: 8px;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .brand__name small {
+    display: none;
+  }
+  .header__actions {
+    gap: 4px;
+  }
+}
+
+/* Menu mobile : défilable, lisible en paysage */
+.mobile-menu {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  justify-content: flex-start;
+}
+.mobile-menu__nav a {
+  font-size: clamp(1.5rem, min(9vw, 6.5svh), 3rem);
+}
+@media (orientation: landscape) and (max-height: 520px) {
+  .mobile-menu {
+    padding-top: calc(var(--header-h) + 24px);
+  }
+  .mobile-menu__nav {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+  }
+  .mobile-menu__nav a {
+    font-size: 1.5rem;
+    padding: 6px 4px;
+  }
+  .mobile-menu__foot {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 16px;
+  }
+}
+
+/* Hero : deux colonnes dès 960 px */
+@media (min-width: 960px) {
+  .hero__content {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+  .quick {
+    max-width: none;
+  }
+}
+@media (min-width: 960px) and (max-width: 1099px) {
+  .hero__fallback .hero__house {
+    right: -3%;
+    top: 7%;
+    width: min(860px, 60vw);
+    opacity: 0.95;
+  }
+}
+@media (max-width: 359px) {
+  .quick__row {
+    flex-wrap: wrap;
+  }
+  .quick__row .btn {
+    flex: 1 1 100%;
+  }
+}
+
+/* Chiffres clés à 320 px */
+@media (max-width: 374px) {
+  .stat {
+    padding: 16px;
+    min-height: 0;
+  }
+  .stat__label {
+    font-size: 0.82rem;
+  }
+}
+
+/* Maison des déperditions : mobile, petits écrans, paysage */
+@media (max-width: 999px) {
+  .heat .s-head {
+    margin-bottom: calc(var(--header-h) + 32px);
+  }
+  .heat__stage {
+    aspect-ratio: auto;
+    height: min(calc((100vw - 2 * var(--gutter)) * 11 / 16), 30svh);
+    min-height: 200px;
+  }
+  .heat__svg {
+    inset: auto;
+    top: 40px;
+    left: 3%;
+    width: 94%;
+    height: calc(100% - 100px);
+  }
+  .heat__hud {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 8px 14px;
+    border-radius: 14px;
+  }
+  .heat__hud-label {
+    display: none;
+  }
+  .heat__hud-value {
+    font-size: 1.6rem;
+  }
+  .heat__legend {
+    top: 10px;
+    left: 10px;
+  }
+  .heat__visual::before {
+    top: calc(-1 * (var(--header-h) + 16px));
+    background: linear-gradient(180deg, var(--ink-950), var(--ink-950) calc(100% - 22px), rgba(5, 7, 12, 0));
+  }
+}
+@media (max-width: 400px) and (max-height: 720px) {
+  .heat-step .heat-card {
+    padding: 16px;
+    gap: 8px;
+  }
+  .heat-step .heat-step__pct {
+    font-size: 2.5rem;
+  }
+  .heat-step p {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 999px) and (orientation: landscape) and (max-height: 600px) {
+  .heat .s-head {
+    margin-bottom: 32px;
+  }
+  .heat__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+  }
+  .heat__visual {
+    top: calc(var(--header-h) + 12px);
+    z-index: 2;
+  }
+  .heat__visual::before {
+    display: none;
+  }
+  .heat__stage {
+    height: calc(100svh - var(--header-h) - 96px);
+    min-height: 0;
+  }
+  .heat-step {
+    min-height: 80svh;
+    z-index: auto;
+  }
+}
+
+/* Bento : pas de trou entre 720 et 1099 px */
+@media (min-width: 720px) and (max-width: 1099px) {
+  .card--d,
+  .card--e {
+    grid-column: span 3;
+  }
+}
+
+/* Simulateur : jamais plus large que sa carte */
+.sim__panel {
+  grid-template-columns: minmax(0, 1fr);
+}
+.sim__panel > * {
+  min-width: 0;
+}
+.sim__row b {
+  white-space: nowrap;
+  flex: none;
+}
+.sim__row > span {
+  min-width: 0;
+}
+@media (max-width: 400px) {
+  .sim__results .btn {
+    white-space: normal;
+    height: auto;
+    min-height: var(--btn-h);
+    padding: 12px 20px;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+/* Carte de la zone : légende sous la carte et labels lisibles sur mobile */
+@media (max-width: 719px) {
+  .zone__map {
+    aspect-ratio: auto;
+  }
+  .zone__map > svg {
+    position: relative;
+    inset: auto;
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .zone__legend {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0 12px 12px;
+  }
+  .zone__map .town text {
+    font-size: 14px;
+  }
+  .zone__map .town--major text,
+  .zone__map .home text {
+    font-size: 18px;
+  }
+}
+@media (max-width: 459px) {
+  .zone__map .town:not(.town--major) text {
+    display: none;
+  }
+}
+@media (min-width: 1000px) {
+  .zone__legend {
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Formulaire */
+.form__step-title {
+  margin-bottom: 18px;
+}
+@media (max-width: 379px) {
+  .form__options {
+    grid-template-columns: 1fr;
+  }
+  .form__options .opt {
+    min-height: 52px;
+  }
+}
+
+/* Pied de page */
+.footer__links a[href^="mailto:"] {
+  white-space: nowrap;
+}
+@media (max-width: 599px) {
+  .footer__cols > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .footer__cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Barre d'action : compacte en paysage, centrée sur tablette */
+@media (min-width: 600px) and (max-width: 899px) and (orientation: portrait) {
+  .dock {
+    left: 50%;
+    right: auto;
+    width: min(440px, calc(100% - 24px));
+    transform: translate(-50%, 150%);
+  }
+  .dock.is-visible {
+    transform: translate(-50%, 0);
+  }
+  body.menu-open .dock {
+    transform: translate(-50%, 150%);
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .dock {
+    left: auto;
+    right: max(12px, env(safe-area-inset-right));
+    bottom: 8px;
+    grid-template-columns: auto auto;
+    padding: 6px;
+    border-radius: 22px;
+  }
+  .dock .btn {
+    --btn-h: 42px;
+  }
+  .zone__map {
+    aspect-ratio: auto;
+    height: min(calc(100vw - 2 * var(--gutter)), 82svh);
+  }
+  .ba {
+    aspect-ratio: auto;
+    height: 78svh;
+  }
+  .h-hero {
+    font-size: clamp(2.5rem, 1rem + 9svh, 4.5rem);
+  }
+}
