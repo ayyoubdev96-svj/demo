@@ -3946,3 +3946,12 @@ body.menu-open .dock {
     font-size: clamp(2.5rem, 1rem + 9svh, 4.5rem);
   }
 }
+
+/* Cartes claires du bento : icônes et titres alignés d'une carte à l'autre */
+.card.glass--light .card__illu {
+  flex: none;
+  height: 190px;
+}
+.card.glass--light .card__body {
+  margin-top: 0;
+}
