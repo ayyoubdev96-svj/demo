@@ -795,15 +795,22 @@
       }
     }
 
-    /* Bandeau communes : accélère avec la vitesse de défilement */
+    /* Bandeau communes : défilement continu qui accélère en douceur avec la vitesse de la page
+       (piloté par GSAP : changer la durée d'une animation CSS en cours la faisait sauter) */
     const marquee = $(".marquee__track");
-    if (marquee && lenis) {
-      let skew = 0;
-      lenis.on("scroll", ({ velocity }) => {
-        const v = clamp(velocity, -40, 40);
-        skew += (v - skew) * 0.2;
-        marquee.style.animationDuration = Math.max(14, 60 - Math.abs(skew) * 1.4) + "s";
-      });
+    if (marquee) {
+      marquee.classList.add("is-js");
+      const loop = gsap.fromTo(marquee, { xPercent: 0 }, { xPercent: -50, duration: 60, ease: "none", repeat: -1 });
+      const band = marquee.parentElement;
+      band.addEventListener("mouseenter", () => gsap.to(loop, { timeScale: 0, duration: 0.6, overwrite: true }));
+      band.addEventListener("mouseleave", () => gsap.to(loop, { timeScale: 1, duration: 0.6, overwrite: true }));
+      if (lenis) {
+        lenis.on("scroll", ({ velocity }) => {
+          const boost = 1 + Math.min(Math.abs(velocity), 40) * 0.08;
+          gsap.to(loop, { timeScale: boost, duration: 0.3, overwrite: true });
+          gsap.to(loop, { timeScale: 1, duration: 1.2, delay: 0.3, ease: "power2.out", overwrite: false });
+        });
+      }
     }
 
     /* ---------- Méthode : défilement horizontal épinglé (desktop) ---------- */
