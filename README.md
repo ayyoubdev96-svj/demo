@@ -7,7 +7,8 @@ Le site est 100 % statique (HTML, CSS, JS). Il n'y a rien à installer et aucune
 ## Structure
 
 ```
-index.html               page principale
+index.html               page principale (V2, design blanc et gris clair)
+v1/                      ancienne version sombre et bleue, conservée pour comparaison (v1/index.html)
 mentions-legales.html    mentions légales + RGPD (champs [à compléter] surlignés)
 favicon.svg
 robots.txt, sitemap.xml  SEO (robots.txt bloque l'indexation tant que c'est une démo)

@@ -755,6 +755,8 @@
         });
       }
 
+      // La méthode (épinglée) est haut dans la page : on recalcule les déclencheurs dans l'ordre de la page
+      ScrollTrigger.sort();
       window.addEventListener("load", () => ScrollTrigger.refresh());
       ScrollTrigger.refresh();
     })

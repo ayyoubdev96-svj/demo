@@ -981,9 +981,6 @@ img + .media-fallback {
 /* ==========================================================================
    L'artisan
    ========================================================================== */
-.intro {
-  padding-top: 0;
-}
 .intro__statement {
   max-width: 1040px;
   font-size: clamp(1.75rem, 1rem + 3vw, 3.4rem);
@@ -1152,7 +1149,7 @@ img + .media-fallback {
 }
 .heat-step__num b {
   font-weight: 600;
-  color: var(--ink-3);
+  color: var(--ink);
 }
 .heat-step .heat-step__pct {
   font-size: clamp(3rem, 2rem + 4vw, 5.2rem);
@@ -1520,10 +1517,10 @@ img + .media-fallback {
 }
 .mstep__num {
   font-size: clamp(3rem, 2.2rem + 2vw, 4.5rem);
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 0.85;
-  color: var(--ink-4);
+  color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
 .mstep__icon {
