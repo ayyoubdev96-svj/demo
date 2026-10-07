@@ -213,34 +213,67 @@
   const heatSteps = $$(".heat-step");
   const hudZone = $(".heat__hud-zone");
   const hudValue = $(".heat__hud-value");
-  let heatValue = { v: 0 };
+  const heatVisual = $(".heat__visual");
+  let heatValue = { v: 100 };
+  // Texte exact affiché par l'étape (ex. « 25–30 % »), pour que l'encart et l'étape disent la même chose
+  const heatExact = (step) => (step.querySelector(".heat-step__pct")?.firstChild?.textContent || "").trim();
   const setHeat = (step) => {
     if (!step || step.classList.contains("is-active")) return;
     heatSteps.forEach((s) => s.classList.toggle("is-active", s === step));
     if (heatSvg) heatSvg.dataset.active = step.dataset.zone;
     if (hudZone) hudZone.textContent = step.dataset.label || "";
     const target = parseFloat(step.dataset.pct || 0);
-    const suffix = step.dataset.suffix || " %";
+    const suffix = step.dataset.suffix || "\u00a0%";
+    const final = heatExact(step) || (step.dataset.prefix || "") + target + suffix;
     if (hudValue) {
       if (hasGSAP && !reduce) {
         gsap.to(heatValue, {
           v: target,
-          duration: 0.9,
-          ease: "power3.out",
+          duration: 0.7,
+          ease: "power2.out",
+          overwrite: true,
           onUpdate: () => (hudValue.textContent = (step.dataset.prefix || "") + Math.round(heatValue.v) + suffix),
+          onComplete: () => (hudValue.textContent = final),
         });
-      } else hudValue.textContent = (step.dataset.prefix || "") + target + suffix;
+      } else hudValue.textContent = final;
     }
   };
-  if (heatSteps.length && "IntersectionObserver" in window) {
-    const isDesk = matchMedia("(min-width: 1000px)").matches;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((en) => en.isIntersecting && setHeat(en.target)),
-      { rootMargin: isDesk ? "-48% 0px -48% 0px" : "-62% 0px -30% 0px" }
-    );
-    heatSteps.forEach((s) => io.observe(s));
+  if (heatSteps.length) {
+    // Étape active = celle qu'on voit le plus, sous la maison collée (mobile) ou dans l'écran (grand écran)
+    let top = 0;
+    const measure = () => {
+      top = !matchMedia("(min-width: 1000px)").matches && heatVisual ? heatVisual.getBoundingClientRect().bottom : 0;
+    };
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      measure();
+      let current = heatSteps[0];
+      let best = -1;
+      for (const st of heatSteps) {
+        const r = st.getBoundingClientRect();
+        const seen = Math.min(r.bottom, window.innerHeight) - Math.max(r.top, top);
+        if (seen >= best) {
+          best = seen;
+          current = st;
+        }
+      }
+      setHeat(current);
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    measure();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => {
+      measure();
+      onScroll();
+    });
+    setHeat(heatSteps[0]);
+    update();
   }
-  if (heatSteps[0]) setHeat(heatSteps[0]);
 
   /* ------------------------------------------------------------------
      Avant / après
@@ -839,4 +872,20 @@
       finishIntro();
     }
   }, 6000);
+})();
+
+/* Carte : les ondes autour de Saint-Lager jouent à l'arrivée sur la carte, pas pendant tout le défilement */
+(() => {
+  const map = document.querySelector(".zone__map");
+  if (!map) return;
+  if (!("IntersectionObserver" in window)) return map.classList.add("is-live");
+  const io = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      map.classList.add("is-live");
+      io.disconnect();
+    },
+    { threshold: 0.35 }
+  );
+  io.observe(map);
 })();

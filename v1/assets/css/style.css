@@ -3955,3 +3955,32 @@ body.menu-open .dock {
 .card.glass--light .card__body {
   margin-top: 0;
 }
+
+/* Carte : couche figée pendant le défilement, ondes jouées seulement à l'arrivée */
+.zone__map > svg {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.zone__map .pulse {
+  animation: none;
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .zone__map.is-live .pulse {
+    animation: pulse 3.2s var(--ease-out) 2 both;
+  }
+  .zone__map.is-live .pulse--2 {
+    animation-delay: 1.06s;
+  }
+  .zone__map.is-live .pulse--3 {
+    animation-delay: 2.13s;
+  }
+}
+
+/* Écrans peu hauts : la maison collée laisse toujours de la place pour lire l'étape */
+@media (max-width: 999px) {
+  .heat__stage {
+    width: 100%;
+    max-height: 46svh;
+  }
+}
