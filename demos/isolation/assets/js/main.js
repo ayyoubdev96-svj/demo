@@ -1,5 +1,5 @@
 /* ==========================================================================
-   KP Prestations — interactions & animations
+   Interactions et animations
    GSAP 3 + ScrollTrigger + SplitText, Lenis (défilement fluide).
    Tout reste lisible et utilisable sans animation (prefers-reduced-motion).
    ========================================================================== */
