@@ -3235,3 +3235,8 @@ body.menu-open .dock {
     max-height: 46svh;
   }
 }
+
+/* Photo du haut : garder la pompe à chaleur (bas de l'image) visible sur grand écran */
+.hero__media img {
+  object-position: 50% 95%;
+}
