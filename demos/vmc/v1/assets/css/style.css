@@ -3454,7 +3454,7 @@ body.menu-open .dock {
   display: none;
 }
 
-/* Carte plâtrerie : la plaque glisse au survol */
+/* Carte illustrée : le panneau glisse au survol */
 .card--c .slide-panel {
   transition: transform 0.9s var(--ease-out);
 }
@@ -4054,4 +4054,8 @@ body.menu-open .dock {
   display: block;
   margin: 12px 0 0 2px;
   line-height: 1.25;
+}
+/* Photos claires : voile en haut (numéro lisible) et en bas (texte lisible) */
+.card--media .card__media::after {
+  background: linear-gradient(180deg, rgba(5, 7, 12, 0.42) 0%, rgba(5, 7, 12, 0.06) 22%, rgba(5, 7, 12, 0.28) 46%, rgba(5, 7, 12, 0.9) 100%);
 }
