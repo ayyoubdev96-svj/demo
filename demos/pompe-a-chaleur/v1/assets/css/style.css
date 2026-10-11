@@ -4057,3 +4057,20 @@ body.menu-open .dock {
 .form__done-alt {
   font-size: 0.85rem;
 }
+
+/* Étapes : légende sous le chiffre (libellés plus longs) */
+.heat-step .heat-step__pct span {
+  display: block;
+  margin: 0.7rem 0 0;
+  line-height: 1.25;
+  font-size: max(0.24em, 0.85rem);
+}
+
+/* Photos claires : voile en haut (numéro et badge lisibles) et en bas (texte lisible) */
+.card--media .card__media::after {
+  background: linear-gradient(180deg, rgba(5, 7, 12, 0.45) 0%, rgba(5, 7, 12, 0.06) 22%, rgba(5, 7, 12, 0.3) 46%, rgba(5, 7, 12, 0.92) 100%);
+}
+.form__done-alt a {
+  color: var(--white);
+  text-underline-offset: 3px;
+}
