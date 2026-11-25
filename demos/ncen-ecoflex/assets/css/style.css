@@ -3240,3 +3240,15 @@ body.menu-open .dock {
 .hero__media img {
   object-position: 50% 95%;
 }
+
+/* EcoFleX : unité gainable (air/air) dans la section animée */
+.heat__svg[data-active="duct"] .flow--duct,
+.heat__svg[data-active="after"] .flow--duct {
+  opacity: 1;
+}
+.heat__svg[data-active="duct"] .zone-hl--duct {
+  opacity: 1;
+}
+.heat__svg[data-active="duct"] .warm {
+  opacity: 1;
+}

@@ -4074,3 +4074,11 @@ body.menu-open .dock {
   color: var(--white);
   text-underline-offset: 3px;
 }
+
+/* EcoFleX : unité gainable (air/air) dans la section animée */
+.heat__svg[data-active="duct"] .flow--duct,
+.heat__svg[data-active="after"] .flow--duct,
+.heat__svg[data-active="duct"] .zone-hl--duct,
+.heat__svg[data-active="duct"] .warm {
+  opacity: 1;
+}

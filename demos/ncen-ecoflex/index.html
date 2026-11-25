@@ -306,17 +306,17 @@
       <div class="container">
         <div class="s-head">
           <p class="eyebrow" data-reveal>Comprendre</p>
-          <h2 class="h2" id="heat-title" data-split>Comment une pompe à chaleur chauffe votre maison. <span class="tone">Étape par étape.</span></h2>
-          <p class="lead" data-reveal>Une pompe à chaleur transporte vers votre maison la chaleur contenue dans l’air extérieur. Faites défiler&nbsp;: voici le trajet d’un kilowattheure d’électricité.</p>
+          <h2 class="h2" id="heat-title" data-split>Comment fonctionne l’Aquarea EcoFleX. <span class="tone">Étape par étape.</span></h2>
+          <p class="lead" data-reveal>Une seule unité extérieure pour le chauffage à eau, l’eau chaude et l’air chaud ou frais. Faites défiler&nbsp;: voici le trajet d’un kilowattheure d’électricité.</p>
         </div>
 
         <div class="heat__grid">
           <div class="heat__visual">
             <div class="heat__stage">
-              <div class="heat__legend" aria-hidden="true"><span class="chip">Coupe</span><span class="chip">Hiver</span></div>
+              <div class="heat__legend" aria-hidden="true"><span class="chip">Coupe</span><span class="chip">Hiver &amp; été</span></div>
               <svg class="heat__svg" viewBox="0 72 600 400" data-active="meter" role="img" aria-labelledby="heat-svg-title heat-svg-desc">
-                <title id="heat-svg-title">Fonctionnement d’une pompe à chaleur air/eau</title>
-                <desc id="heat-svg-desc">Coupe d’une maison en hiver&nbsp;: l’unité extérieure capte la chaleur de l’air, le compresseur la porte à plus haute température, puis l’eau chaude alimente les radiateurs, le plancher chauffant et le ballon d’eau chaude sanitaire.</desc>
+                <title id="heat-svg-title">Fonctionnement de la pompe à chaleur Panasonic Aquarea EcoFleX</title>
+                <desc id="heat-svg-desc">Coupe d’une maison&nbsp;: une seule unité extérieure alimente le module intérieur avec son ballon d’eau chaude de 185 litres, les radiateurs et le plancher chauffant, ainsi qu’une unité gainable dans les combles qui souffle de l’air chaud ou frais dans les pièces.</desc>
                 <defs>
                   <radialGradient id="hgWarm" cx="50%" cy="62%" r="62%">
                     <stop offset="0" stop-color="#efe2cf" stop-opacity=".95"/>
@@ -371,10 +371,20 @@
                   <path d="m578 344-4 8h5l-3 8" stroke-opacity=".55"/>
                 </g>
 
+
+                <g class="ecoflex-duct" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path data-draw d="M186 366H202V214H336" stroke="#6f8299" stroke-opacity=".7" stroke-width="1.5" stroke-dasharray="5 4"/>
+                  <rect x="336" y="200" width="88" height="26" rx="5" fill="#fff" stroke-opacity=".65" stroke-width="1.5"/>
+                  <path d="M346 208h22M346 214h14" stroke-opacity=".35"/>
+                  <path data-draw d="M424 213H470V246M380 226V246" stroke-opacity=".45" stroke-width="3"/>
+                  <rect x="366" y="244" width="28" height="5" rx="2" fill="#fff" stroke-opacity=".6"/>
+                  <rect x="456" y="244" width="28" height="5" rx="2" fill="#fff" stroke-opacity=".6"/>
+                </g>
                 <g class="zone-hl zone-hl--meter" fill="url(#hgZone)" stroke="#6f8299" stroke-opacity=".6"><rect x="560" y="330" width="34" height="46" rx="5"/></g>
                 <g class="zone-hl zone-hl--outdoor" fill="url(#hgZone)" stroke="#6f8299" stroke-opacity=".55"><rect x="58" y="352" width="140" height="94" rx="10"/></g>
                 <g class="zone-hl zone-hl--compressor" fill="url(#hgZone)" stroke="#6f8299" stroke-opacity=".55"><rect x="148" y="388" width="34" height="48" rx="9"/><rect x="250" y="260" width="58" height="66" rx="7"/></g>
                 <g class="zone-hl zone-hl--emitters" fill="url(#hgZone)" stroke="#6f8299" stroke-opacity=".55"><rect x="462" y="360" width="72" height="50" rx="5"/><rect x="246" y="420" width="298" height="16"/></g>
+                <g class="zone-hl zone-hl--duct" fill="url(#hgZone)" stroke="#6f8299" stroke-opacity=".6"><rect x="328" y="192" width="104" height="42" rx="8"/><rect x="360" y="240" width="130" height="14" rx="4"/></g>
                 <g class="zone-hl zone-hl--dhw" fill="url(#hgZone)" stroke="#6f8299" stroke-opacity=".55"><rect x="252" y="320" width="54" height="104" rx="14"/><rect x="342" y="342" width="68" height="54" rx="8"/></g>
 
                 <g class="done">
@@ -386,6 +396,7 @@
                   <g class="flow flow--outdoor" stroke="#6f8299"><path d="M6 380c16-6 30 6 46 0"/><path d="M6 400c16-6 30 6 46 0"/><path d="M6 420c16-6 30 6 46 0"/></g>
                   <g class="flow flow--compressor" stroke="#5e8a6c" stroke-width="2.2"><path d="M186 378H214V286H258"/><path d="M128 399H150"/></g>
                   <g class="flow flow--emitters" stroke="#5e8a6c"><path d="M300 280H498V364"/><path d="M482 362c-5-10 5-18 0-30"/><path d="M498 362c-5-10 5-18 0-30"/><path d="M514 362c-5-10 5-18 0-30"/><path d="M420 416c-5-10 5-18 0-30"/><path d="M444 416c-5-10 5-18 0-30"/></g>
+                  <g class="flow flow--duct" stroke-width="2.2"><path d="M202 300V214H334" stroke="#6f8299"/><path d="M372 256c-5 8 5 14 0 24" stroke="#5e8a6c"/><path d="M388 256c-5 8 5 14 0 24" stroke="#5e8a6c"/><path d="M462 256c-5 8 5 14 0 24" stroke="#6f8299"/><path d="M478 256c-5 8 5 14 0 24" stroke="#6f8299"/></g>
                   <g class="flow flow--dhw" stroke="#5e8a6c" stroke-width="2.2"><path d="M298 362H362"/><path d="M380 362v8"/><path d="M394 366c-4-8 4-14 0-24"/></g>
                 </g>
               </svg>
@@ -404,21 +415,21 @@
               <div class="heat-card">
                 <p class="heat-step__num"><b>00</b> Point de départ</p>
                 <p class="heat-step__pct">1&nbsp;kWh<span>d’électricité au compteur</span></p>
-                <p>Une chaudière brûle du fioul ou du gaz pour produire sa chaleur. Une pompe à chaleur récupère celle qui existe déjà dans l’air extérieur, même en hiver. Suivons ce kilowattheure.</p>
+                <p>Une chaudière brûle du fioul ou du gaz pour produire sa chaleur. L’Aquarea EcoFleX, elle, récupère celle qui existe déjà dans l’air extérieur, même en hiver. Suivons ce kilowattheure.</p>
               </div>
             </article>
             <article class="heat-step" data-zone="outdoor" data-hud="Chaleur puisée dehors" data-label="Unité extérieure" data-pct="3" data-prefix="+" data-suffix="&#160;kWh">
               <div class="heat-card">
-                <p class="heat-step__num"><b>01</b> Unité extérieure</p>
+                <p class="heat-step__num"><b>01</b> Une seule unité extérieure</p>
                 <p class="heat-step__pct">+2–3&nbsp;kWh<span>puisés dans l’air</span></p>
-                <p>Le ventilateur fait passer l’air du jardin sur un échangeur. Le fluide frigorigène qui y circule est plus froid que cet air, même à 0&nbsp;°C&nbsp;: il en capte les calories en s’évaporant.</p>
+                <p>Une seule unité extérieure alimente toute l’installation&nbsp;: le circuit d’eau et l’unité gainable. Son échangeur capte les calories de l’air du jardin, même quand il fait froid.</p>
               </div>
             </article>
-            <article class="heat-step" data-zone="compressor" data-hud="Chaleur transmise à l’eau" data-label="Compresseur" data-pct="4" data-suffix="&#160;kWh">
+            <article class="heat-step" data-zone="compressor" data-hud="Chaleur transmise à l’eau" data-label="Module intérieur" data-pct="4" data-suffix="&#160;kWh">
               <div class="heat-card">
-                <p class="heat-step__num"><b>02</b> Compresseur</p>
+                <p class="heat-step__num"><b>02</b> Module intérieur</p>
                 <p class="heat-step__pct">3–4&nbsp;kWh<span>de chaleur pour l’eau</span></p>
-                <p>Le compresseur, principal consommateur d’électricité, comprime ce fluide et sa température monte nettement. Dans le module intérieur, un échangeur transmet cette chaleur à l’eau du chauffage.</p>
+                <p>Le compresseur porte le fluide à plus haute température, puis le module intérieur EcoFleX transmet cette chaleur à l’eau du chauffage. Il intègre le ballon d’eau chaude de 185&nbsp;litres, sur moins de 60&nbsp;×&nbsp;60&nbsp;cm au sol.</p>
               </div>
             </article>
             <article class="heat-step" data-zone="emitters" data-hud="Température de l’eau" data-label="Radiateurs &amp; plancher" data-pct="55" data-suffix="&#160;°C">
@@ -428,22 +439,29 @@
                 <p>Autour de 35&nbsp;°C pour un plancher chauffant, plutôt 45 à 55&nbsp;°C pour des radiateurs. Plus l’eau reste tiède, meilleur est le rendement&nbsp;: nous vérifions vos émetteurs pendant l’étude.</p>
               </div>
             </article>
-            <article class="heat-step" data-zone="dhw" data-hud="Eau chaude sanitaire" data-label="Ballon" data-pct="55" data-prefix="≈&#160;" data-suffix="&#160;°C">
+            <article class="heat-step" data-zone="duct" data-hud="Unité gainable" data-label="Air chaud ou frais" data-pct="2" data-suffix="&#160;usages">
               <div class="heat-card">
-                <p class="heat-step__num"><b>04</b> Eau chaude sanitaire</p>
-                <p class="heat-step__pct">≈&nbsp;50–55&nbsp;°C<span>dans le ballon</span></p>
-                <p>Avec un ballon raccordé ou intégré, la même pompe à chaleur produit l’eau chaude de la maison. Un cycle plus chaud est programmé régulièrement pour l’hygiène du ballon.</p>
+                <p class="heat-step__num"><b>04</b> Air chaud l’hiver, frais l’été</p>
+                <p class="heat-step__pct">2&nbsp;usages<span>chauffage et climatisation</span></p>
+                <p>C’est la partie air/air de l’EcoFleX&nbsp;: une unité gainable, cachée dans les combles ou un faux plafond, souffle de l’air chaud l’hiver et de l’air frais l’été par des bouches discrètes. La technologie nanoe™&nbsp;X de Panasonic purifie l’air au passage.</p>
+              </div>
+            </article>
+            <article class="heat-step" data-zone="dhw" data-hud="Eau chaude sanitaire" data-label="Ballon 185 L" data-pct="55" data-prefix="≈&#160;" data-suffix="&#160;°C">
+              <div class="heat-card">
+                <p class="heat-step__num"><b>05</b> Eau chaude &amp; récupération</p>
+                <p class="heat-step__pct">≈&nbsp;50–55&nbsp;°C<span>dans le ballon de 185&nbsp;L</span></p>
+                <p>Le ballon intégré fournit l’eau chaude de la maison. L’été, quand l’unité gainable rafraîchit les pièces, la chaleur qu’elle retire peut servir à chauffer ce ballon au lieu d’être rejetée dehors.</p>
               </div>
             </article>
             <article class="heat-step heat-step--final" data-zone="after" data-hud="Chaleur pour 1 kWh consommé" data-label="Sur la saison" data-pct="4" data-prefix="×" data-suffix="">
               <div class="heat-card">
                 <p class="heat-step__num"><b>✓</b> Le bilan</p>
                 <p class="heat-step__pct">×3–4<span>sur l’hiver</span></p>
-                <p>C’est le rendement saisonnier, ou SCOP&nbsp;: 3 à 4&nbsp;kWh de chaleur pour 1&nbsp;kWh d’électricité. Il baisse par grand froid et remonte en mi-saison&nbsp;; un bon dimensionnement et des réglages soignés font la différence.</p>
+                <p>Chauffage, eau chaude et climatisation avec une seule unité extérieure&nbsp;: 3 à 4&nbsp;kWh de chaleur pour 1&nbsp;kWh d’électricité sur la saison. Le rendement baisse par grand froid&nbsp;; un bon dimensionnement et des réglages soignés font la différence.</p>
                 <p><a class="link-arrow" href="#expertise">Voir nos prestations <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></p>
               </div>
             </article>
-            <p class="heat__source">Ordres de grandeur pour une pompe à chaleur air/eau récente. Le rendement réel dépend de la température extérieure, des émetteurs, de la température de l’eau et de l’isolation de la maison&nbsp;; il baisse par grand froid.</p>
+            <p class="heat__source">Ordres de grandeur pour une pompe à chaleur récente comme l’Aquarea EcoFleX, selon le modèle et l’installation. Le rendement réel dépend de la température extérieure, des émetteurs, de la température de l’eau et de l’isolation de la maison&nbsp;; il baisse par grand froid.</p>
 
           </div>
         </div>
