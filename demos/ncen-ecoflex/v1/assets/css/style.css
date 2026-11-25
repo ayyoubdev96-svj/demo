@@ -4205,3 +4205,49 @@ body.menu-open .dock {
   margin-top: 20px;
   font-size: 0.8rem;
 }
+
+/* ==========================================================================
+   Fluidité : pas de grain plein écran, flou « verre » seulement en
+   surimpression, animations du dessin seulement quand il est à l'écran
+   ========================================================================== */
+.grain {
+  display: none;
+}
+.glass:not(.header__bar):not(.dock):not(.quick) {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.heat__hud.glass,
+.zone__legend.glass,
+.heat-step .heat-card {
+  background: rgba(22, 30, 46, 0.94);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.glass--light:not(.header__bar):not(.dock):not(.quick) {
+  background: rgba(255, 255, 255, 0.95);
+}
+.heat__legend .chip,
+.card--media .card__icon,
+.card--media .card__tags .chip {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.heat__svg:not(.is-live) .flow path {
+  animation-play-state: paused;
+}
+/* Les taches de lumière sont déjà des dégradés doux : pas de filtre de flou
+   (il forçait un recalcul complet à chaque image pendant le défilement) */
+.mesh__blob {
+  filter: none !important;
+}
+/* Reflet qui suit la souris : gardé sur le formulaire du haut seulement */
+.glare__light {
+  display: none;
+}
+.quick .glare__light {
+  display: block;
+}
+.heat-step .heat-card {
+  background: linear-gradient(155deg, rgba(14, 20, 32, 0.78), rgba(14, 20, 32, 0.6));
+}

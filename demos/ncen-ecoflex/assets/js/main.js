@@ -46,7 +46,7 @@
   let lenis = null;
   safe(() => {
     if (reduce || !window.Lenis) return;
-    lenis = new Lenis({ duration: 1.1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    lenis = new Lenis({ lerp: 0.11, smoothWheel: true, wheelMultiplier: 1 });
     if (hasGSAP) {
       lenis.on("scroll", ScrollTrigger.update);
       gsap.ticker.add((t) => lenis.raf(t * 1000));
@@ -823,4 +823,12 @@
     { threshold: 0.35 }
   );
   io.observe(map);
+})();
+
+
+/* Fluidité : les flux du dessin ne tournent que lorsque la section est à l'écran */
+(() => {
+  const svg = document.querySelector(".heat__svg");
+  if (!svg || !("IntersectionObserver" in window)) return svg && svg.classList.add("is-live");
+  new IntersectionObserver((entries) => entries.forEach((e) => svg.classList.toggle("is-live", e.isIntersecting)), { rootMargin: "100px 0px" }).observe(svg);
 })();

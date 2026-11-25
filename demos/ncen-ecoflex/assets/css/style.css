@@ -3375,3 +3375,16 @@ body.menu-open .dock {
   margin-top: 20px;
   font-size: 0.8rem;
 }
+
+/* ==========================================================================
+   Fluidité : le flou « verre » seulement là où il se voit (sur photo ou en
+   surimpression), les animations du dessin seulement quand il est à l'écran
+   ========================================================================== */
+.glass:not(.header__bar):not(.dock):not(.quick):not(.card__glass) {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: rgba(255, 255, 255, 0.94);
+}
+.heat__svg:not(.is-live) .flow path {
+  animation-play-state: paused;
+}
