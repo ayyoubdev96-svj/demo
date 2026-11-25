@@ -3388,3 +3388,21 @@ body.menu-open .dock {
 .heat__svg:not(.is-live) .flow path {
   animation-play-state: paused;
 }
+
+/* EcoFleX : étiquettes du dessin, mises en avant à l'étape concernée */
+.heat__svg .lbl {
+  opacity: 0.45;
+  letter-spacing: 0.01em;
+  transition: opacity 0.5s ease;
+}
+.heat__svg[data-active="outdoor"] .lbl--outdoor,
+.heat__svg[data-active="module"] .lbl--module,
+.heat__svg[data-active="winter"] .lbl--emit,
+.heat__svg[data-active="winter"] .lbl--duct,
+.heat__svg[data-active="summer"] .lbl--duct,
+.heat__svg[data-active="summer"] .lbl--module,
+.heat__svg[data-active="defrost"] .lbl--outdoor,
+.heat__svg[data-active="defrost"] .lbl--module,
+.heat__svg[data-active="after"] .lbl {
+  opacity: 1;
+}

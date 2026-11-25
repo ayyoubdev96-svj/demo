@@ -4251,3 +4251,21 @@ body.menu-open .dock {
 .heat-step .heat-card {
   background: linear-gradient(155deg, rgba(14, 20, 32, 0.78), rgba(14, 20, 32, 0.6));
 }
+
+/* EcoFleX : étiquettes du dessin, mises en avant à l'étape concernée */
+.heat__svg .lbl {
+  opacity: 0.45;
+  letter-spacing: 0.01em;
+  transition: opacity 0.5s ease;
+}
+.heat__svg[data-active="outdoor"] .lbl--outdoor,
+.heat__svg[data-active="module"] .lbl--module,
+.heat__svg[data-active="winter"] .lbl--emit,
+.heat__svg[data-active="winter"] .lbl--duct,
+.heat__svg[data-active="summer"] .lbl--duct,
+.heat__svg[data-active="summer"] .lbl--module,
+.heat__svg[data-active="defrost"] .lbl--outdoor,
+.heat__svg[data-active="defrost"] .lbl--module,
+.heat__svg[data-active="after"] .lbl {
+  opacity: 1;
+}
